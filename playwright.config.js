@@ -13,13 +13,17 @@ module.exports = defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: 1, 
   reporter: [
-    // 1. ADD THIS: Prints test progress to the terminal
+    // 1. List Reporter: Prints to terminal
     ['list'], 
     
-    // 2. Existing reporters
+    // 2. HTML Reporter
     ['html', { open: 'never' }],
+    
+    // 3. JSON Reporter
     ['json', { outputFile: 'test-results/results.json' }],
-    './reporters/email-reporter.cjs'
+    
+    // 4. Custom Email Reporter: MUST be wrapped in brackets to be a "tuple"
+    ['./reporters/email-reporter.cjs'] 
   ],
   
   use: {
@@ -33,13 +37,10 @@ module.exports = defineConfig({
   },
 
   projects: [
-    // 1. Setup Project
     {
       name: 'setup',
       testMatch: /.*\.setup\.js/,
     },
-
-    // 2. Provider Project
     {
       name: 'provider-chromium',
       testMatch: /droneProvider.spec.js/,
@@ -49,8 +50,6 @@ module.exports = defineConfig({
       },
       dependencies: ['setup'],
     },
-
-    // 3. Customer Project
     {
       name: 'customer-chromium',
       testMatch: /droneCustomer.spec.js/,
