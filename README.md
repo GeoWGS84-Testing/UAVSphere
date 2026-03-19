@@ -1,4 +1,3 @@
-```markdown
 # 🛸 UAVSphere Automation Test Suite
 
 ![Test Status](https://img.shields.io/badge/Status-Passing-brightgreen) ![Framework](https://img.shields.io/badge/Framework-Playwright-blue) ![Language](https://img.shields.io/badge/Language-JavaScript-yellow)
@@ -241,5 +240,4 @@ npx playwright test tests/droneCustomer.spec.js --headed
 
 # Run with specific project
 npx playwright test --project=customer-chromium
-```
 ```
