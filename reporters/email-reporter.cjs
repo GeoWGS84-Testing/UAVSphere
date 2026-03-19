@@ -188,7 +188,7 @@ class EmailReporter {
             
             <!-- Logo Header -->
             <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-              <img src="cid:${LOGO_CID}" alt="Datastore Logo" style="width: 150px; height: auto; border: 0;" />
+              <img src="cid:${LOGO_CID}" alt="UAVSphere Logo" style="width: 150px; height: auto; border: 0;" />
             </div>
 
             <h2 style="margin-top: 0; color: #333;">Dataset Daily Summary</h2>
@@ -359,7 +359,7 @@ class EmailReporter {
             <div class="container">
                 <!-- Logo Header -->
                 <div style="text-align: center; margin-bottom: 20px; border-bottom: 2px solid #007bff; padding-bottom: 15px;">
-                    <img src="cid:${LOGO_CID}" alt="Datastore Logo" style="width: 150px; height: auto; border: 0; margin-bottom: 10px;" />
+                    <img src="cid:${LOGO_CID}" alt="UAVSphere Logo" style="width: 150px; height: auto; border: 0; margin-bottom: 10px;" />
                     <h2 style="margin: 0; color: #333; font-size: 20px;">Dataset Test Execution Report</h2>
                 </div>
 
@@ -423,7 +423,7 @@ class EmailReporter {
     // Embed Logo if exists
     if (fs.existsSync(LOGO_PATH)) {
         finalAttachments.push({
-            filename: 'Datastore_Logo.png',
+            filename: 'UAVSphere_Logo.png',
             path: LOGO_PATH,
             cid: LOGO_CID // Referenced in the HTML img src
         });
