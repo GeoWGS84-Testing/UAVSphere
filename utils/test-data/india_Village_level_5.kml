@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="root_doc">
+    <Schema id="sql_statement.schema">
+      <SimpleField name="shape5" type="string"/>
+      <SimpleField name="shapeiso" type="string"/>
+      <SimpleField name="shapeid" type="string"/>
+      <SimpleField name="shapegroup" type="string"/>
+      <SimpleField name="shapetype" type="string"/>
+      <SimpleField name="gid" type="int"/>
+      <SimpleField name="shape4" type="string"/>
+      <SimpleField name="shape3" type="string"/>
+      <SimpleField name="shape2" type="string"/>
+      <SimpleField name="shape1" type="string"/>
+      <SimpleField name="shape0" type="string"/>
+    </Schema>
+    <Document id="sql_statement">
+      <name>sql_statement</name>
+      <Placemark id="sql_statement.1">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Kodebada</SimpleData>
+            <SimpleData name="shapeid">67370122B21291070854434</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">395035</SimpleData>
+            <SimpleData name="shape4">Lohandiguda</SimpleData>
+            <SimpleData name="shape3">Lohandiguda</SimpleData>
+            <SimpleData name="shape2">Bastar</SimpleData>
+            <SimpleData name="shape1">Chhattisgarh</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                81.7681893450001,19.1804950910001,0
+                81.774208758,19.1747774410001,0
+                81.778611955,19.1703909460001,0
+                81.7830871770001,19.171547849,0
+                81.7821762780001,19.1745764610001,0
+                81.7814875080001,19.187219418,0
+                81.781153294,19.187208819,0
+                81.7692100190001,19.1810535980001,0
+                81.7681893450001,19.1804950910001,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.2">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Nalgaon</SimpleData>
+            <SimpleData name="shapeid">67370122B33933059104260</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18562</SimpleData>
+            <SimpleData name="shape4">Rani</SimpleData>
+            <SimpleData name="shape3">Palasbari</SimpleData>
+            <SimpleData name="shape2">Kamrup</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                91.4851099970001,26.0102741090001,0
+                91.4893158250001,26.0100972830001,0
+                91.4919141190001,26.010295587,0
+                91.492660464,26.012605342,0
+                91.492544147,26.0144817030001,0
+                91.4922724470001,26.018864347,0
+                91.488421723,26.024834755,0
+                91.48640112,26.019760149,0
+                91.4862840900001,26.0194662230001,0
+                91.486071221,26.017205711,0
+                91.485814969,26.0127147520001,0
+                91.4851099970001,26.0102741090001,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.3">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Tarajan N.C</SimpleData>
+            <SimpleData name="shapeid">67370122B94372249168206</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18595</SimpleData>
+            <SimpleData name="shape4">Bordoloni</SimpleData>
+            <SimpleData name="shape3">Gogamukh</SimpleData>
+            <SimpleData name="shape2">Dhemaji</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                94.3058780490001,27.481109986,0
+                94.315378841,27.4823010550001,0
+                94.3179096330001,27.483544984,0
+                94.31716192,27.486871632,0
+                94.3160112750001,27.49178226,0
+                94.3149757350001,27.494196861,0
+                94.3144215330001,27.495489062,0
+                94.307319072,27.494245221,0
+                94.3004914740001,27.4928724000001,0
+                94.3023735310001,27.4906545010001,0
+                94.304965613,27.4865780760001,0
+                94.3060540430001,27.4842113440001,0
+                94.3058780490001,27.481109986,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.4">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Betagaon</SimpleData>
+            <SimpleData name="shapeid">67370122B14984092144725</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18609</SimpleData>
+            <SimpleData name="shape4">Bhergaon</SimpleData>
+            <SimpleData name="shape3">Harisinga</SimpleData>
+            <SimpleData name="shape2">Udalguri</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                91.783269621,26.626759544,0
+                91.7837081970001,26.627539692,0
+                91.784041383,26.629358016,0
+                91.785250288,26.631290447,0
+                91.7858378820001,26.63355353,0
+                91.786880452,26.6355861060001,0
+                91.7886575040001,26.639331269,0
+                91.785628381,26.6386516640001,0
+                91.7824482070001,26.638227989,0
+                91.7776656980001,26.637153402,0
+                91.7772278340001,26.6349537730001,0
+                91.776739686,26.63089223,0
+                91.77638633,26.6271477820001,0
+                91.7763746620001,26.6240515100001,0
+                91.7771675550001,26.6248826290001,0
+                91.77866392,26.6253510130001,0
+                91.7820380250001,26.625945571,0
+                91.783269621,26.626759544,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.5">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Chashapani Pt.I</SimpleData>
+            <SimpleData name="shapeid">67370122B68024423599569</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18537</SimpleData>
+            <SimpleData name="shape4">Mahamaya-Btc</SimpleData>
+            <SimpleData name="shape3">Bagribari (Pt)</SimpleData>
+            <SimpleData name="shape2">Kokrajhar</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                90.1579510860001,26.338552409,0
+                90.1612728740001,26.338371775,0
+                90.1654509320001,26.3388225410001,0
+                90.1676372030001,26.3396295580001,0
+                90.169829985,26.3404950030001,0
+                90.1711339190001,26.3416175510001,0
+                90.172248655,26.343191818,0
+                90.173081891,26.3445587320001,0
+                90.1739203280001,26.346005582,0
+                90.1732169570001,26.3480514080001,0
+                90.1746736000001,26.349644874,0
+                90.176295049,26.3507263110001,0
+                90.1767896520001,26.3513512850001,0
+                90.176098472,26.3524773070001,0
+                90.175950195,26.3525313540001,0
+                90.173008467,26.3536035660001,0
+                90.170100463,26.3546588190001,0
+                90.1672707880001,26.3576656320001,0
+                90.1672332800001,26.357673441,0
+                90.1659682220001,26.357936798,0
+                90.1628599220001,26.357220845,0
+                90.1594125280001,26.3558711860001,0
+                90.160255448,26.352469791,0
+                90.160255448,26.350938528,0
+                90.160658551,26.3478205550001,0
+                90.159559211,26.3424226930001,0
+                90.1579510860001,26.338552409,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.6">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Baniapara Pt.I</SimpleData>
+            <SimpleData name="shapeid">67370122B60747026070289</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18538</SimpleData>
+            <SimpleData name="shape4">Chapor-Salkocha-Btc</SimpleData>
+            <SimpleData name="shape3">Kokrajhar</SimpleData>
+            <SimpleData name="shape2">Kokrajhar</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                90.357510527,26.245794002,0
+                90.3570679470001,26.2457681990001,0
+                90.3504757860001,26.245383727,0
+                90.3501532560001,26.245346612,0
+                90.349442965,26.241830624,0
+                90.3492504650001,26.2394294100001,0
+                90.3489404700001,26.2355622440001,0
+                90.348926884,26.2347182120001,0
+                90.3488850310001,26.232117831,0
+                90.348943309,26.230532994,0
+                90.3495750850001,26.229996156,0
+                90.3495709630001,26.229900328,0
+                90.349652737,26.2299301730001,0
+                90.3504802990001,26.2292269590001,0
+                90.3528102750001,26.2290500570001,0
+                90.3545385740001,26.2291508660001,0
+                90.35506896,26.2298335620001,0
+                90.355618371,26.230540736,0
+                90.355499663,26.232757463,0
+                90.3562046470001,26.236442341,0
+                90.3574420690001,26.2374060500001,0
+                90.3585424880001,26.237963596,0
+                90.3580110950001,26.2403243360001,0
+                90.357510527,26.245794002,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.7">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Dikhari 283 Nlr Grant</SimpleData>
+            <SimpleData name="shapeid">67370122B7661528036634</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18539</SimpleData>
+            <SimpleData name="shape4">Khowang</SimpleData>
+            <SimpleData name="shape3">Moran</SimpleData>
+            <SimpleData name="shape2">Dibrugarh</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                94.8228248770001,27.1297633070001,0
+                94.8188801950001,27.131464141,0
+                94.81098798,27.1345200690001,0
+                94.8085246360001,27.1356290850001,0
+                94.8085434870001,27.1334094900001,0
+                94.808673937,27.129749673,0
+                94.8088433780001,27.1280191450001,0
+                94.8114956410001,27.1261666,0
+                94.8152531370001,27.126562893,0
+                94.8198479120001,27.1276577690001,0
+                94.8232620080001,27.1286225310001,0
+                94.8228248770001,27.1297633070001,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.8">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">No.4 Belsiri Bagan</SimpleData>
+            <SimpleData name="shapeid">67370122B2184510427315</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18540</SimpleData>
+            <SimpleData name="shape4">Dhekiajuli</SimpleData>
+            <SimpleData name="shape3">Thelamara</SimpleData>
+            <SimpleData name="shape2">Sonitpur</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                92.5328597060001,26.77781085,0
+                92.5382366740001,26.7798480060001,0
+                92.5427594670001,26.7805527800001,0
+                92.5432126760001,26.780623394,0
+                92.5467829200001,26.781333004,0
+                92.5497900540001,26.7819658780001,0
+                92.5489802380001,26.783993487,0
+                92.5473675140001,26.787115778,0
+                92.531120554,26.78628056,0
+                92.5256014290001,26.786161764,0
+                92.527829264,26.782491942,0
+                92.5302650560001,26.780491625,0
+                92.532827905,26.7778743920001,0
+                92.5328597060001,26.77781085,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.9">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Goraimari</SimpleData>
+            <SimpleData name="shapeid">67370122B12842857161771</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18541</SimpleData>
+            <SimpleData name="shape4">Boitamari</SimpleData>
+            <SimpleData name="shape3">Boitamari</SimpleData>
+            <SimpleData name="shape2">Bongaigaon</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                90.582414171,26.2706321900001,0
+                90.585233154,26.2704873600001,0
+                90.587682009,26.2693325720001,0
+                90.589396127,26.268981689,0
+                90.591458871,26.268899859,0
+                90.591462812,26.269067191,0
+                90.5930425160001,26.2715168330001,0
+                90.592602975,26.2722060140001,0
+                90.591422143,26.273392141,0
+                90.5906715840001,26.2748033170001,0
+                90.5901811470001,26.275363097,0
+                90.589270565,26.2758625970001,0
+                90.589267609,26.2757223180001,0
+                90.5891910270001,26.2757519680001,0
+                90.5885022750001,26.275251215,0
+                90.586327731,26.2763139460001,0
+                90.584158008,26.2771906990001,0
+                90.5826158890001,26.277748011,0
+                90.5796820250001,26.2794244940001,0
+                90.5795558403934,26.2795531562671,0
+                90.578602382,26.278401166,0
+                90.578508458,26.2759326560001,0
+                90.5784051780001,26.2738213330001,0
+                90.579504092,26.272740513,0
+                90.5811293360001,26.2712437930001,0
+                90.582414171,26.2706321900001,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark id="sql_statement.10">
+        <ExtendedData>
+          <SchemaData schemaUrl="#sql_statement.schema">
+            <SimpleData name="shape5">Mukalmua</SimpleData>
+            <SimpleData name="shapeid">67370122B36700238096249</SimpleData>
+            <SimpleData name="shapegroup">IND</SimpleData>
+            <SimpleData name="shapetype">ADM5</SimpleData>
+            <SimpleData name="gid">18542</SimpleData>
+            <SimpleData name="shape4">Barkhetri</SimpleData>
+            <SimpleData name="shape3">Barkhetri</SimpleData>
+            <SimpleData name="shape2">Nalbari</SimpleData>
+            <SimpleData name="shape1">Assam</SimpleData>
+            <SimpleData name="shape0">india</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                91.3461165320001,26.276250396,0
+                91.3447748170001,26.266121228,0
+                91.3452693720001,26.265069956,0
+                91.3465822890001,26.2596279840001,0
+                91.3471094240001,26.255138828,0
+                91.3473514020001,26.254572244,0
+                91.3474142950001,26.254582246,0
+                91.3518304250001,26.254905695,0
+                91.3583409770001,26.255030074,0
+                91.3587547650001,26.2667683760001,0
+                91.357365927,26.270821626,0
+                91.3559503050001,26.274390861,0
+                91.354741656,26.276966504,0
+                91.3525448870001,26.2769054990001,0
+                91.3461165320001,26.276250396,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+    </Document>
+  </Document>
+</kml>

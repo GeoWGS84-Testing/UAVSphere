@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Testing
+test-results/
+playwright-report/
+playwright/.cache/
+playwright/.auth/  # Ignore auth state to force fresh login in CI
+
+# Environment variables (IMPORTANT: Do not upload your secrets!)
+.env
+.env.local
+
+# System files
+.DS_Store
+Thumbs.db

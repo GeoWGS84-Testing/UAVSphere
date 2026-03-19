@@ -1,0 +1,25 @@
+{
+  "cookies": [
+    {
+      "name": "g_state",
+      "value": "{\"i_l\":0,\"i_ll\":1773852646097,\"i_b\":\"2G5l2wu+zFpYp5lw5bpgjXLl8rHIYsKyJ3f7nXi/wDA\",\"i_e\":{\"enable_itp_optimization\":0}}",
+      "domain": "portal.uavsphere.com",
+      "path": "/",
+      "expires": 1789404646,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://portal.uavsphere.com",
+      "localStorage": [
+        {
+          "name": "auth",
+          "value": "{\"master_password_used\":false,\"token\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3Mzg1MjY1MCwianRpIjoiZjZhNWEwMTYtNTliYS00NDE1LThlOGQtN2MxNmNkMTJiZDZlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6ImthcGlscHJhamFwYXRpMjUwQGdtYWlsLmNvbSIsIm5iZiI6MTc3Mzg1MjY1MCwiY3NyZiI6ImIxYzQ5NTJiLTIzYmMtNGQ4My05NTA2LWJjNDA0OGQzYWJlMSIsImV4cCI6MTc3Mzg1ODY1MH0.bhzCBPlV2BHNslqUiGKadbCIq9wWU5Ccme5HJuPH58E\",\"user\":{\"email\":\"kapilprajapati250@gmail.com\"},\"expirationTime\":1773858650000}"
+        }
+      ]
+    }
+  ]
+}
