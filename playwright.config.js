@@ -13,10 +13,13 @@ module.exports = defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: 1, 
   reporter: [
+    // 1. ADD THIS: Prints test progress to the terminal
+    ['list'], 
+    
+    // 2. Existing reporters
     ['html', { open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
-    // <--- ADD THIS LINE TO ENABLE EMAIL REPORTING
-    ['./reporters/email-reporter.cjs'] 
+    './reporters/email-reporter.cjs'
   ],
   
   use: {
