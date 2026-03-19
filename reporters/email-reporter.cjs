@@ -177,10 +177,10 @@ class EmailReporter {
     // ---------------------------------------------------------
     if (process.env.DAILY_REPORT_EMAILS) {
       const subject = this.stats.failed > 0 
-        ? `❌ Dataset Daily Report: ${this.stats.failed} Failed, ${this.stats.warning_tests} Warnings` 
+        ? `❌ UAVSphere Daily Report: ${this.stats.failed} Failed, ${this.stats.warning_tests} Warnings` 
         : this.stats.warning_tests > 0
-          ? `⚠️ Dataset Daily Report: ${this.stats.warning_tests} Warnings`
-          : `✅ Dataset Daily Report: All Tests Passed`
+          ? `⚠️ UAVSphere Daily Report: ${this.stats.warning_tests} Warnings`
+          : `✅ UAVSphere Daily Report: All Tests Passed`
       
       const html = `
         <div style="font-family: 'Segoe UI', Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
@@ -191,7 +191,7 @@ class EmailReporter {
               <img src="cid:${LOGO_CID}" alt="UAVSphere Logo" style="width: 150px; height: auto; border: 0;" />
             </div>
 
-            <h2 style="margin-top: 0; color: #333;">Dataset Daily Summary</h2>
+            <h2 style="margin-top: 0; color: #333;">UAVSphere Daily Summary</h2>
             <p>Website testing has completed.</p>
             <table style="width: 100%; text-align: center; margin: 20px 0; border-collapse: collapse;">
               <tr>
@@ -342,7 +342,7 @@ class EmailReporter {
         subjectIcon = '⚠️';
       }
 
-      const subject = `${subjectIcon} Dataset Test Report: ${this.stats.passed} Passed, ${this.stats.failed} Failed, ${this.stats.warning_tests} Warnings`;
+      const subject = `${subjectIcon} UAVSphere Test Report: ${this.stats.passed} Passed, ${this.stats.failed} Failed, ${this.stats.warning_tests} Warnings`;
       
       const html = `
         <!DOCTYPE html>
@@ -360,7 +360,7 @@ class EmailReporter {
                 <!-- Logo Header -->
                 <div style="text-align: center; margin-bottom: 20px; border-bottom: 2px solid #007bff; padding-bottom: 15px;">
                     <img src="cid:${LOGO_CID}" alt="UAVSphere Logo" style="width: 150px; height: auto; border: 0; margin-bottom: 10px;" />
-                    <h2 style="margin: 0; color: #333; font-size: 20px;">Dataset Test Execution Report</h2>
+                    <h2 style="margin: 0; color: #333; font-size: 20px;">UAVSphere Test Execution Report</h2>
                 </div>
 
                 <p>Execution completed at: <strong>${new Date().toLocaleString()}</strong></p>
