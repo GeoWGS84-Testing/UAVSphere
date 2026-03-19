@@ -5,7 +5,7 @@ import fsPromises from 'fs/promises'
 import path from 'path'
 const {
   setContext, clearContext, clearDiagnostics, getArtifacts, clearArtifacts,
-  showTestFailure, extractErrorReason, formatArtifactFilename, logInfo
+  showFailureMessage, extractErrorReason, formatArtifactFilename, logInfo, captureScreenshot
 } = require('../utils/helpers');
 
 const VIDEO_DIR = path.join(process.cwd(), 'test-results');
@@ -72,29 +72,42 @@ exports.test = base.extend({
     // After test completes - handle artifacts
     const testFailed = testInfo.status === 'failed' || testInfo.status === 'timedOut';
     const testPassed = testInfo.status === 'passed';
-    const hasWarnings = getArtifacts().length > 0;
+    const warningArtifacts = getArtifacts(); // Screenshots captured during test via helpers
+    const hasWarnings = warningArtifacts.length > 0;
 
+    // 1. HANDLE FAILURES
     if (testFailed) {
       const error = testInfo.error;
       const reason = extractErrorReason(error);
       const errorMessage = error?.message || 'Test failed';
 
-      // Show failure banner on page
-      await showTestFailure(page, errorMessage, 'FAILURE');
-      await page.waitForTimeout(1000);
+      // Show message on screen (Helper already did this if error happened during step, but double check for pure assertion failures)
+      // We call it here to ensure it's visible for the Playwright auto-screenshot
+      await showFailureMessage(page, errorMessage, 'FAILURE', 3000);
 
-      // Rename artifacts
+      // Rename video
       const pwFolder = await findPlaywrightTestFolder(testInfo.title);
       if (pwFolder) {
         await renamePlaywrightArtifacts(pwFolder, testInfo.file, testInfo.title, reason);
       }
 
       logInfo('Test failed, artifacts renamed', { reason, folder: pwFolder });
-    } else if (hasWarnings && testPassed) {
-      const warningMsg = `Test passed with ${getArtifacts().length} warning(s)`;
-      await showTestFailure(page, warningMsg, 'WARNING');
-      await page.waitForTimeout(500);
+    } 
+    // 2. HANDLE WARNINGS (Passed but with warnings)
+    else if (hasWarnings && testPassed) {
+      const warningMsg = `Test passed with ${warningArtifacts.length} warning(s)`;
       
+      // Show warning message on screen
+      await showFailureMessage(page, warningMsg, 'WARNING', 3000);
+      
+      // Manually capture screenshot because Playwright only auto-captures on failure
+      const screenshotPath = await captureScreenshot(page, testInfo.title, 'WARNING', testInfo.file);
+      if (screenshotPath) {
+         // Attach to testInfo so it shows in reporter
+         await testInfo.attach('warning-screenshot', { path: screenshotPath, contentType: 'image/png' });
+      }
+
+      // Rename video
       const pwFolder = await findPlaywrightTestFolder(testInfo.title);
       if (pwFolder) {
         await renamePlaywrightArtifacts(pwFolder, testInfo.file, testInfo.title, 'WARNING');

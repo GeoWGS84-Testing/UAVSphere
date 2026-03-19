@@ -253,6 +253,7 @@ async function showStep(page, text) {
   lastErrorCount = currentErrorCount;
   lastWarningCount = currentWarningCount;
 
+  // If new error/warning, show message and capture immediately
   if (hasNewErrors || hasNewWarnings) {
     try {
       if (!page.isClosed()) {
@@ -261,12 +262,19 @@ async function showStep(page, text) {
           ? (ERRORS[ERRORS.length - 1]?.message || 'Error occurred')
           : (WARNINGS[WARNINGS.length - 1]?.message || 'Warning occurred');
 
-        await showTestFailure(page, msgText, msgType);
-        await fastWait(page, 2000);
+        // Show message on screen
+        await showFailureMessage(page, msgText, msgType);
+        await fastWait(page, 2000); // Let user see it
+
+        // Capture screenshot immediately
+        const reason = hasNewErrors ? 'ERROR_DETECTED' : 'WARNING_DETECTED';
+        const filePath = await captureScreenshot(page, CURRENT_TESTCASE, reason);
+        if (filePath) ARTIFACTS.push(filePath);
       }
     } catch (e) { console.warn('Failed immediate capture:', e.message); }
   }
 
+  // Standard Step Banner
   try {
     if (!page.isClosed()) {
       await page.evaluate(({ stepText, testCase }) => {
@@ -309,6 +317,78 @@ async function showStep(page, text) {
   await fastWait(page, 300);
 }
 
+/**
+ * Show failure/error message on screen - CALL THIS BEFORE CAPTURING
+ */
+async function showFailureMessage(page, message, type = 'FAILURE', waitMs = 5000) {
+  const colors = {
+    'FAILURE': { bg: 'rgba(180, 0, 0, 0.95)', border: '#ff0000' },
+    'ERROR': { bg: 'rgba(200, 50, 50, 0.95)', border: '#ff4444' },
+    'WARNING': { bg: 'rgba(200, 150, 0, 0.95)', border: '#ffaa00' }
+  };
+  const color = colors[type] || colors['FAILURE'];
+  
+  const displayMsg = message.length > 300 ? message.substring(0, 300) + '...' : message;
+  
+  console.error(`\n${'='.repeat(70)}`);
+  console.error(`[${type}] ${displayMsg}`);
+  console.error(`${'='.repeat(70)}\n`);
+  
+  try {
+    if (!page.isClosed()) {
+      await page.evaluate(({ msg, type, bgColor, borderColor }) => {
+        const existing = document.getElementById('pw-fatal-failure-banner');
+        if (existing) existing.remove();
+        
+        const banner = document.createElement('div');
+        banner.id = 'pw-fatal-failure-banner';
+        Object.assign(banner.style, {
+          position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', 
+          zIndex: '9999999', 
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          background: bgColor, color: '#ffffff', fontFamily: 'Segoe UI, sans-serif', 
+          fontSize: '16px', fontWeight: 'bold', padding: '30px', boxSizing: 'border-box', 
+          textAlign: 'center'
+        });
+        
+        const title = document.createElement('div');
+        title.innerText = type === 'FAILURE' ? '❌ TEST FAILED' : type === 'ERROR' ? '⚠️ ERROR DETECTED' : '⚠️ WARNING';
+        title.style.fontSize = '32px';
+        title.style.marginBottom = '20px';
+        title.style.textShadow = '2px 2px 4px rgba(0,0,0,0.5)';
+        
+        const details = document.createElement('div');
+        details.innerText = msg;
+        details.style.fontSize = '14px'; 
+        details.style.fontWeight = 'normal';
+        details.style.maxWidth = '80%';
+        details.style.lineHeight = '1.6';
+        details.style.background = 'rgba(0,0,0,0.3)';
+        details.style.padding = '20px';
+        details.style.borderRadius = '10px';
+        details.style.border = `2px solid ${borderColor}`;
+        
+        const info = document.createElement('div');
+        info.innerText = '📸 Capturing screenshot...';
+        info.style.fontSize = '12px';
+        info.style.marginTop = '20px';
+        info.style.opacity = '0.8';
+        
+        banner.appendChild(title);
+        banner.appendChild(details);
+        banner.appendChild(info);
+        document.body.appendChild(banner);
+      }, { msg: displayMsg, type, bgColor: color.bg, borderColor: color.border });
+      
+      if (waitMs > 0) {
+        await fastWait(page, waitMs);
+      }
+    }
+  } catch (err) { 
+    console.warn('Could not show failure message on screen:', err.message); 
+  }
+}
+
 async function showTestFailure(page, message, type = 'FAILURE') {
   const colors = {
     'FAILURE': { bg: '#dc3545', icon: '❌' },
@@ -317,15 +397,15 @@ async function showTestFailure(page, message, type = 'FAILURE') {
   };
   const color = colors[type] || colors['FAILURE'];
   const displayMsg = message.length > 150 ? message.substring(0, 150) + '...' : message;
-
+  
   console.error(`\n[${type}] ${displayMsg}\n`);
-
+  
   try {
     if (!page.isClosed()) {
       await page.evaluate(({ msg, bgColor, icon }) => {
         const existing = document.getElementById('pw-failure-banner');
         if (existing) existing.remove();
-
+        
         const banner = document.createElement('div');
         banner.id = 'pw-failure-banner';
         banner.style.cssText = `
@@ -337,24 +417,24 @@ async function showTestFailure(page, message, type = 'FAILURE') {
           box-shadow: 0 4px 12px rgba(0,0,0,0.3);
           display: flex; align-items: center; gap: 10px;
         `;
-
+        
         const iconEl = document.createElement('span');
         iconEl.textContent = icon;
         iconEl.style.fontSize = '20px';
-
+        
         const textEl = document.createElement('span');
         textEl.textContent = msg;
         textEl.style.flex = '1';
-
+        
         banner.appendChild(iconEl);
         banner.appendChild(textEl);
         document.body.appendChild(banner);
       }, { msg: displayMsg, bgColor: color.bg, icon: color.icon });
-
+      
       await fastWait(page, 3000);
     }
-  } catch (err) {
-    console.warn('Could not show failure banner:', err.message);
+  } catch (err) { 
+    console.warn('Could not show failure banner:', err.message); 
   }
 }
 
@@ -379,7 +459,7 @@ async function captureScreenshot(page, testTitle, reason, testFile = null) {
 module.exports = {
   setContext, clearContext, logInfo, addWarning, addError,
   getDiagnostics, clearDiagnostics, getArtifacts, clearArtifacts,
-  shouldRunPriority, sleep, fastWait, highlight, showStep, showTestFailure,
+  shouldRunPriority, sleep, fastWait, highlight, showStep, showTestFailure, showFailureMessage,
   robustClick, waitAndFill, waitForVisible, captureScreenshot,
   getTestFileName, extractErrorReason, formatArtifactFilename,
   DIAG_DIR, VIDEO_DIR

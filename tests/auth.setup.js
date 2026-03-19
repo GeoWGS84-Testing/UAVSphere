@@ -13,12 +13,12 @@ test('authenticate as drone provider', async ({ page }) => {
   await loginPage.clickProviderButton();
 
   // 2. Login with credentials from .env
-  const email = process.env.PROVIDER_EMAIL;
-  const password = process.env.PROVIDER_PASSWORD;
+  const email = process.env.TEST_USERNAME;
+  const password = process.env.TEST_PASSWORD;
 
   // Basic validation to ensure variables are loaded
   if (!email || !password) {
-    throw new Error('PROVIDER_EMAIL or PROVIDER_PASSWORD is missing from .env file');
+    throw new Error('TEST_USERNAME or TEST_PASSWORD is missing from .env file');
   }
 
   await loginPage.login(email, password);

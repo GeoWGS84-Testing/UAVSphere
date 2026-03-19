@@ -8,13 +8,15 @@ const AUTH_FILE = path.join(__dirname, 'playwright/.auth/user.json');
 
 module.exports = defineConfig({
   testDir: './tests',
-  fullyParallel: false, // Set to false to ensure setup runs first
+  fullyParallel: false, 
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: 1, // Force 1 worker to ensure setup completes before tests
+  workers: 1, 
   reporter: [
     ['html', { open: 'never' }],
-    ['json', { outputFile: 'test-results/results.json' }]
+    ['json', { outputFile: 'test-results/results.json' }],
+    // <--- ADD THIS LINE TO ENABLE EMAIL REPORTING
+    ['./reporters/email-reporter.cjs'] 
   ],
   
   use: {
@@ -28,36 +30,30 @@ module.exports = defineConfig({
   },
 
   projects: [
-    // 1. Setup Project: Authenticates the Provider and saves state
+    // 1. Setup Project
     {
       name: 'setup',
       testMatch: /.*\.setup\.js/,
     },
 
-    // 2. Provider Project: Uses the saved authentication state
+    // 2. Provider Project
     {
       name: 'provider-chromium',
-      testMatch: /droneProvider.spec.js/, // Only runs provider tests
+      testMatch: /droneProvider.spec.js/,
       use: { 
         ...devices['Desktop Chrome'],
-        storageState: AUTH_FILE, // <--- ONLY Provider tests use this
+        storageState: AUTH_FILE,
       },
-      dependencies: ['setup'], // Depends on setup
-      launchOptions: { args: ['--start-maximized'] }
-
+      dependencies: ['setup'],
     },
 
-    // 3. Customer Project: Starts fresh (No auth state)
+    // 3. Customer Project
     {
       name: 'customer-chromium',
-      testMatch: /droneCustomer.spec.js/, // Only runs customer tests
+      testMatch: /droneCustomer.spec.js/,
       use: { 
         ...devices['Desktop Chrome'],
-        // No storageState here! Starts with a clean browser.
       },
-      // No dependency on 'setup'
-      launchOptions: { args: ['--start-maximized'] }
-
     },
   ],
 });
